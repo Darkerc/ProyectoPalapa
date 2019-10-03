@@ -1,0 +1,17 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Vuetity
+@import "~vuetify/dist/vuetify.min.css";
+
+//Estilos generales de la app
+@import "./BodyStyles.scss";
+
+//Barras de scroll de la app
+@import "./scrolls.scss";

@@ -1,0 +1,14 @@
+body{
+    overflow: hidden;
+}
+
+html{
+    overflow: hidden;
+}
+
+.remove-underline, a{
+    &:hover{
+        content:none;
+        text-decoration: none;
+    }
+}

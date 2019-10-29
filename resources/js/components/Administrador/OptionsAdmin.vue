@@ -6,12 +6,12 @@
             <v-icon>mdi-shopping</v-icon>
         </v-btn>
 
-        <v-btn>
+        <v-btn tile :to="{ name:'adminDate' }">
             <span class="title">Fechas</span>
             <v-icon>mdi-calendar-clock</v-icon>
         </v-btn>
 
-        <v-btn @click.prevent="$auth.logout()">
+        <v-btn @click.prevent="logout">
             <span class="title">Cerrar sesion</span>
             <v-icon>mdi-account-off</v-icon>
         </v-btn>
@@ -25,6 +25,14 @@ export default {
         return {
             activeBtn: 0,
         }
-    }
+    },
+    methods: {
+        logout() {
+            //$auth.logout()
+            this.$auth.logout({
+                makeRequest: false
+            });
+        },
+    },
 }
 </script>

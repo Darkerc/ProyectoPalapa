@@ -18,20 +18,6 @@
         </v-sheet> -->
         <v-sheet id="mapa" class="mx-auto" height="500px" width="100%"></v-sheet>
     </v-sheet>
-
-    <v-snackbar v-model="cardsNoLoaded" color="red darken-3" class="toastSyle" top right multi-line>
-        No se pudieron cargar los paquetes
-        <v-btn dark text @click="cardsNoLoaded = false">
-            Close
-        </v-btn>
-    </v-snackbar>
-    <v-snackbar v-model="mapNoLoaded" color="red darken-3" class="toastSyle" top right multi-line>
-        No se pudo cargar el mapa de google maps
-        <v-btn dark text @click="mapNoLoaded = false">
-            Close
-        </v-btn>
-    </v-snackbar>
-
 </div>
 </template>
 
@@ -48,13 +34,11 @@ export default {
                 lat: 17.8633862,
                 lng: -92.9250504
             },
-            datosPaquetes: null,
-            cardsNoLoaded: false,
-            mapNoLoaded: false
-
+            datosPaquetes: null
         }
     },
     beforeMount() {
+        this.loadPackage()
         this.loadMap()
     },
     components: {
@@ -67,41 +51,45 @@ export default {
                 navigator.geolocation.getCurrentPosition(resolve, reject, options);
             });
         },
-        loadMap() {
-            this.getPosition()
-                .then((position) => {
-                    let gmm = new GoogleMapsManager("mapa", {
-                        zoom: 10,
-                        center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-                    })
-
-                    gmm.drawMark(position.coords.latitude, position.coords.longitude, "Tu ubicacion")
-                    gmm.drawMark(this.palapaPosition.lat, this.palapaPosition.lng, "Palapa Quetzal")
-                    gmm.drawRoute({
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
-                        }, {
-                            lat: this.palapaPosition.lat,
-                            lng: this.palapaPosition.lng
-                        },
-                        "DRIVING")
-
-                    this.mapNoLoaded = false
+        async loadMap() {
+            try {
+                let { coords } = await this.getPosition()
+                let gmm = new GoogleMapsManager("mapa", {
+                    zoom: 10,
+                    center: new google.maps.LatLng(coords.latitude,coords.longitude)
                 })
-                .catch((err) => {
-                    console.error(err.message);
-                    this.mapNoLoaded = true
-                });
 
-            axios.post("api/paquetes")
-                .then(res => {
-                    console.log(res.data.data)
-                    this.datosPaquetes = res.data.data
+                gmm.drawMark(coords.latitude,coords.longitude, "Tu ubicacion")
+                gmm.drawMark(this.palapaPosition.lat, this.palapaPosition.lng, "Palapa Quetzal")
+                gmm.drawRoute({
+                    lat: coords.latitude,
+                    lng: coords.longitude
+                },
+                {
+                    lat: this.palapaPosition.lat,
+                    lng: this.palapaPosition.lng
+                },
+                "DRIVING")
+            } catch (err) {
+                console.error(err)
+            }
+
+
+        },
+        async loadPackage(){
+            try{
+                let { data } = await axios.post("/api/paquetes")
+                this.datosPaquetes = data
+                console.log(data)
+            }catch(err){
+                console.error(err)
+                this.$toasted.success("A ocurrido un problema al cargar los paquetes", {
+                    type:"error",
+                    theme: "outline",
+                    position: "top-right",
+                    duration: 5000
                 })
-                .catch(err => {
-                    console.error(err);
-                    this.cardsNoLoaded = true
-                })
+            }
         }
     }
 }

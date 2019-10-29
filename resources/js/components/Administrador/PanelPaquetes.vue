@@ -12,7 +12,7 @@
                 <v-list-item-subtitle>{{ paquete.Precio }}</v-list-item-subtitle>
             </v-list-item-content>
 
-            <v-list-item-icon>
+            <!-- <v-list-item-icon>
                 <v-tooltip bottom>
                     <template v-slot:activator="{ on }">
                         <v-btn icon class="update" v-on="on">
@@ -21,7 +21,7 @@
                     </template>
                     <span>Actualizar</span>
                 </v-tooltip>
-            </v-list-item-icon>
+            </v-list-item-icon> -->
 
             <v-list-item-icon>
                 <v-tooltip bottom>
@@ -98,6 +98,17 @@ export default {
         animation: 2s linear infinite girar;
         transform: scale(1.2);
     }
+}
+
+.create{
+    transition: all 250ms ease-in-out;
+    outline: none;
+    margin: 0 0 0 auto;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+
 }
 
 @keyframes girar {

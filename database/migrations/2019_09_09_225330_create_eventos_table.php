@@ -16,12 +16,12 @@ class CreateEventosTable extends Migration
         Schema::create('eventos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->text("Nombre_del_evento");
             $table->text("Arrendatario");
             $table->dateTime("Fecha_De_Inicio");
             $table->boolean("Anticipo");
-            $table->boolean("Es_Vigente");
-            $table->boolean("Es_Finalizado");
             $table->time("Horas_Extra");
+            $table->integer("Paquetes_Id");
         });
     }
 

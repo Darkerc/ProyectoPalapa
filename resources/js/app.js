@@ -16,6 +16,7 @@ import VueAuth from '@websanova/vue-auth'
 import VueAxios from 'vue-axios'
 import auth from './auth'
 import Toasted from 'vue-toasted';
+
 Vue.router = router
 Vue.use(VueAxios, axios)
 Vue.use(VueAuth, auth)
@@ -27,7 +28,3 @@ const VueApp = new Vue({
     vuetify,
     router
 }).$mount('#app');
-
-
-    // render: h => h(App)
-

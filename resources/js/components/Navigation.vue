@@ -16,12 +16,18 @@
                 <v-icon size="2.5em">mdi-account</v-icon>
             </v-btn>
 
+            <v-btn v-if="$auth.check()" icon :to="{ name:'adminNewUser' }">
+                <v-icon size="2.5em">mdi-account-plus</v-icon>
+            </v-btn>
+
             <v-btn v-if="$auth.check()" icon :to="{ name: 'adminPanel'}">
                 <v-icon size="2.5em">mdi-database</v-icon>
             </v-btn>
 
+            <!--  -->
+
         </v-app-bar>
-        <v-sheet id="scrolling-techniques-5" class="overflow-y-auto scroll-info">
+        <v-sheet id="scrolling-techniques-5" class="overflow-y-auto scroll-info overflow-x-overflow-x-hidden">
             <slot></slot>
         </v-sheet>
     </v-card>
@@ -59,14 +65,6 @@
                 </v-list-item>
 
                 <v-divider></v-divider>
-
-                <v-list-item :to="{ name: 'nosotros'}">
-                    <v-list-item-content>
-                        <v-list-item-title class="title">
-                            Sobre nosotros
-                        </v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
             </v-list-item-group>
         </v-list>
     </v-navigation-drawer>
@@ -96,6 +94,8 @@ export default {
     min-height: calc( 100vh - 128px );
     display: flex;
     flex-direction: column;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
 }
 
 #app-bar {
@@ -119,6 +119,7 @@ export default {
 
     .v-navigation-drawer__content{
         display: flex !important;
+
     }
 
 }

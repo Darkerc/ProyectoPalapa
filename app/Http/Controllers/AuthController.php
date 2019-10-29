@@ -69,9 +69,19 @@ class AuthController extends Controller
     public function refresh()
     {
         if ($token = $this->guard()->refresh()) {
-            return response()
-                ->json(['status' => 'successs'], 200)
-                ->header('Authorization', $token);
+            // return response()
+            //     ->json(['status' => 'successs'], 200)
+            //     ->header('Authorization', $token);
+
+            return response()->json([
+                "success" => true,
+                "payload" => [
+                    'access_token' => auth()->refresh(),
+                    'token_type' => 'bearer',
+                    'expires_in' => auth()->factory()->getTTL() * 60,
+                    'user' => auth()->user()
+                ]
+            ]);
         }
         return response()->json(['error' => 'refresh_token_error'], 401);
     }

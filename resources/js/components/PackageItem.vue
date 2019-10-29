@@ -18,17 +18,19 @@
             <v-divider class="pt-3"></v-divider>
             <v-card-text class="scroll-info m-0 p-0">
                 <v-list class="listStyle">
-                    <v-list-item v-for="(producto, i) in getCaracteristicasProducto()" :key="i" v-if="producto[1] != 0 && i > 2">
+                    <v-list-item v-for="(producto, i) in getCaracteristicasProducto()" :key="i" v-if="producto[1] != 0 && i > 2 &&  producto[1] != 'false'">
                         <v-list-item-content>
                             <div class="d-flex">
                                 <div class="mr-1">
                                     {{ producto[0].replace(/_/g,' ') }} :
                                 </div>
-                                <div v-if="producto[1] == 1">
-                                     Disponible
-                                </div>
-                                <div v-else>
-                                    {{ producto[1] }}
+                                <div>
+                                    <div v-if="producto[1] == 1 || producto[1] == 'true'">
+                                        Disponible
+                                    </div>
+                                    <div v-else>
+                                        {{ producto[1] }}
+                                    </div>
                                 </div>
                             </div>
                         </v-list-item-content>

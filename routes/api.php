@@ -14,14 +14,22 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
 Route::prefix('/paquetes')->group(function () {
     Route::post('/', 'PaquetesController@PaquetesDisponibles');
+    Route::post('/crear','PaquetesController@CrearPaquete');
     Route::post('/eliminar', 'PaquetesController@EliminarPaquete');
+    Route::post('/columnas/{table}','PaquetesController@NombresColumnas');
+});
+
+Route::prefix('/eventos')->group(function () {
+    Route::post('/', 'EventosController@ObtenerEventos');
+    Route::post('/Añadir', 'EventosController@AgregarEvento');
+    Route::post('/Eliminar', 'EventosController@EliminarEvento');
+});
+
+Route::prefix('/usuarios')->group(function () {
+    Route::post('/', 'UsersController@Usuarios');
+    Route::post('/Eliminar', 'UsersController@EliminarUsuario');
 });
 
 Route::prefix('v1')->group(function () {
@@ -44,10 +52,6 @@ Route::prefix('v1')->group(function () {
         });
     });
 });
-
-// Route::get('/Ruta/Pruebas', function(){
-//     return view("Contrato");
-// });
 
 
 

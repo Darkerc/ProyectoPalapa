@@ -5,7 +5,7 @@
         <v-form class="p-5" @submit.prevent="login">
             <v-text-field label="Usuario" class="w-75 m-auto p-3" id="email" v-model="email">
             </v-text-field>
-            <v-text-field label="Contraseña" class="w-75 m-auto p-3" id="password" v-model="password">
+            <v-text-field label="Contraseña" class="w-75 m-auto p-3" id="password" type="password" v-model="password">
             </v-text-field>
             <v-btn color="success" class="mr-4" block type="submit">Validar</v-btn>
         </v-form>
@@ -59,9 +59,25 @@ export default {
                         name: redirectTo
                     })
                 },
-                error: function () {
+                error: function (res) {
                     app.has_error = true
                     app.error = res.response.data.error
+
+                    if(this.error == 'login_error'){
+                        this.$toasted.error("El usuario o contraseña no son correctos", {
+                            type:"error",
+                            theme: "outline",
+                            position: "top-right",
+                            duration: 5000
+                        })
+                    }else{
+                        this.$toasted.error("A ocurrido un error inesperado ", {
+                            type:"error",
+                            theme: "outline",
+                            position: "top-right",
+                            duration: 5000
+                        })
+                    }
                 },
                 rememberMe: true,
                 fetchUser: true

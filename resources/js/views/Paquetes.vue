@@ -26,16 +26,23 @@ export default {
         this.loadInfo()
     },
     methods: {
-        loadInfo() {
-            axios.post("/api/paquetes")
-                .then(res => {
-                    console.log(res.data.data)
-                    this.datosPaquetes = res.data.data
+        async loadInfo() {
+            try {
+                let { data } = await axios.post("/api/paquetes")
+                this.datosPaquetes = data
+                console.log(data)
+
+            } catch (err) {
+                console.error(err)
+
+                 this.$toasted.success("A ocurrido un problemas al cargar los paquetes", {
+                    type:"error",
+                    theme: "outline",
+                    position: "top-right",
+                    duration: 5000
                 })
-                .catch(err => {
-                    console.error(err);
-                })
-        },
+            }
+        }
     },
 }
 </script>

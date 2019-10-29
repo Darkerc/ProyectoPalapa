@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PaquetesTableSeeder::class,
             Caracteristicas_PaquetesTableSeeder::class,
-            UsersTableSeeder::class
+            UsersTableSeeder::class,
+            EventosTableSeeder::class
         ]);
     }
 }

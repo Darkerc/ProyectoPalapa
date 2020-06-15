@@ -46,6 +46,14 @@
               </v-list-item-title>
             </v-list-item-content>
             <div class="d-flex">
+              <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                      <v-btn icon @click="dialog=true" class="update" v-on="on" v-if="$auth.user().data.name == usuario.name">
+                          <v-icon size="40px" color="indigo darken-1">mdi-autorenew</v-icon>
+                      </v-btn>
+                  </template>
+                  <span>Cambiar contraseña</span>
+              </v-tooltip>
               <v-btn icon class="delete" @click="deleteUser(usuario.id)">
                 <v-icon size="40px" color="red lighten-1">mdi-alpha-x-circle</v-icon>
               </v-btn>
@@ -54,11 +62,13 @@
         </v-list-item-group>
       </v-list>
     </v-sheet>
+    <ActualizarContraseña :dialog="dialog" @CloseDialog="dialog=false"></ActualizarContraseña>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import ActualizarContraseña from './ActualizarContraseña.vue'
 
 export default {
   data() {
@@ -66,11 +76,15 @@ export default {
       Nombre: "",
       Email: "",
       Contraseña: "",
-      Usuarios: null
+      Usuarios: null,
+      dialog:false
     };
   },
   beforeMount() {
     this.getUsers();
+  },
+  components:{
+    ActualizarContraseña
   },
   methods: {
     async createUser() {

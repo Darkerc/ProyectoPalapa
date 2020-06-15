@@ -51,10 +51,12 @@ export default {
                     email: app.email,
                     password: app.password
                 },
-                success: function () {
+                success: function ({data}) {
                     // handle redirection
                     app.success = true
                     const redirectTo = 'adminPanel'
+                    console.log(data) 
+                    this.$auth.watch.data = data
                     this.$router.push({
                         name: redirectTo
                     })

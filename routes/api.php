@@ -30,6 +30,7 @@ Route::prefix('/eventos')->group(function () {
 Route::prefix('/usuarios')->group(function () {
     Route::post('/', 'UsersController@Usuarios');
     Route::post('/Eliminar', 'UsersController@EliminarUsuario');
+    Route::post('/Contraseña/Actualizar', 'UsersController@ActualizarContraseña');
 });
 
 Route::prefix('v1')->group(function () {

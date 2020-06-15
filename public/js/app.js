@@ -4401,6 +4401,132 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      contraNueva: "",
+      contraActual: ""
+    };
+  },
+  props: {
+    dialog: Boolean
+  },
+  methods: {
+    closeDialog: function closeDialog() {
+      this.$emit("CloseDialog", false);
+    },
+    actualizarContraseña: function () {
+      var _actualizarContraseA = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var contraData, _ref, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                contraData = new FormData();
+                contraData.append("id", this.$auth.watch.data.data.id);
+                contraData.append("ContraNueva", this.contraNueva);
+                contraData.append("ContraActual", this.contraActual);
+                _context.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/usuarios/Contraseña/Actualizar", contraData);
+
+              case 7:
+                _ref = _context.sent;
+                data = _ref.data;
+                console.log(data);
+                this.$auth.logout({
+                  makeRequest: false
+                });
+                _context.next = 17;
+                break;
+
+              case 13:
+                _context.prev = 13;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+                this.$toasted.error("Error al intentar cambiar la contraseña, verifique sus datos", {
+                  type: "error",
+                  theme: "outline",
+                  position: "top-right",
+                  duration: 5000
+                });
+
+              case 17:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 13]]);
+      }));
+
+      function actualizarContraseA() {
+        return _actualizarContraseA.apply(this, arguments);
+      }
+
+      return actualizarContraseA;
+    }()
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Administrador/AdminDate.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Administrador/AdminDate.vue?vue&type=script&lang=js& ***!
@@ -4808,6 +4934,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ActualizarContrase_a_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ActualizarContraseña.vue */ "./resources/js/views/Administrador/ActualizarContraseña.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -4873,6 +5000,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -4880,11 +5017,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       Nombre: "",
       Email: "",
       Contraseña: "",
-      Usuarios: null
+      Usuarios: null,
+      dialog: false
     };
   },
   beforeMount: function beforeMount() {
     this.getUsers();
+  },
+  components: {
+    ActualizarContraseña: _ActualizarContrase_a_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: {
     createUser: function () {
@@ -5098,10 +5239,13 @@ __webpack_require__.r(__webpack_exports__);
           email: app.email,
           password: app.password
         },
-        success: function success() {
+        success: function success(_ref) {
+          var data = _ref.data;
           // handle redirection
           app.success = true;
           var redirectTo = 'adminPanel';
+          console.log(data);
+          this.$auth.watch.data = data;
           this.$router.push({
             name: redirectTo
           });
@@ -45878,6 +46022,163 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=template&id=86990ab8&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=template&id=86990ab8& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-dialog",
+        {
+          attrs: {
+            "max-width": "80%",
+            "max-height": "80%",
+            scrollable: "",
+            dark: "",
+            persistent: ""
+          },
+          model: {
+            value: _vm.dialog,
+            callback: function($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            { attrs: { color: "dark" } },
+            [
+              _c("v-card-title", [
+                _vm._v(
+                  "\n            Introduzca los datos nesesarios para el cambio de contraseña\n        "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                { staticClass: "m-0 p-0 overflow-x-hidden scroll-info" },
+                [
+                  _c(
+                    "v-form",
+                    [
+                      _c(
+                        "v-row",
+                        { staticClass: "p-3" },
+                        [
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", md: "10" } },
+                            [
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "Contraseña actual",
+                                  outlined: "",
+                                  "persistent-hint": ""
+                                },
+                                model: {
+                                  value: _vm.contraActual,
+                                  callback: function($$v) {
+                                    _vm.contraActual = $$v
+                                  },
+                                  expression: "contraActual"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "Contraseña nueva",
+                                  outlined: ""
+                                },
+                                model: {
+                                  value: _vm.contraNueva,
+                                  callback: function($$v) {
+                                    _vm.contraNueva = $$v
+                                  },
+                                  expression: "contraNueva"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "white--text", text: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.actualizarContraseña()
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                Cambiar contraseña\n            "
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "white--text", text: "" },
+                      on: { click: _vm.closeDialog }
+                    },
+                    [_vm._v("\n                Cerrar\n            ")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Administrador/AdminDate.vue?vue&type=template&id=37840148&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Administrador/AdminDate.vue?vue&type=template&id=37840148& ***!
@@ -46800,6 +47101,62 @@ var render = function() {
                         { staticClass: "d-flex" },
                         [
                           _c(
+                            "v-tooltip",
+                            {
+                              attrs: { bottom: "" },
+                              scopedSlots: _vm._u(
+                                [
+                                  {
+                                    key: "activator",
+                                    fn: function(ref) {
+                                      var on = ref.on
+                                      return [
+                                        _vm.$auth.user().data.name ==
+                                        usuario.name
+                                          ? _c(
+                                              "v-btn",
+                                              _vm._g(
+                                                {
+                                                  staticClass: "update",
+                                                  attrs: { icon: "" },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.dialog = true
+                                                    }
+                                                  }
+                                                },
+                                                on
+                                              ),
+                                              [
+                                                _c(
+                                                  "v-icon",
+                                                  {
+                                                    attrs: {
+                                                      size: "40px",
+                                                      color: "indigo darken-1"
+                                                    }
+                                                  },
+                                                  [_vm._v("mdi-autorenew")]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
+                                      ]
+                                    }
+                                  }
+                                ],
+                                null,
+                                true
+                              )
+                            },
+                            [
+                              _vm._v(" "),
+                              _c("span", [_vm._v("Cambiar contraseña")])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
                             "v-btn",
                             {
                               staticClass: "delete",
@@ -46838,7 +47195,16 @@ var render = function() {
           )
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c("ActualizarContraseña", {
+        attrs: { dialog: _vm.dialog },
+        on: {
+          CloseDialog: function($event) {
+            _vm.dialog = false
+          }
+        }
+      })
     ],
     1
   )
@@ -99139,6 +99505,10 @@ var config = {
     method: 'GET',
     enabled: true,
     interval: 30
+  },
+  _parseUserData: function _parseUserData(_ref) {
+    var data = _ref.data;
+    return data.data;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (config);
@@ -100001,6 +100371,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PackageItem_vue_vue_type_template_id_7e66b244_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PackageItem_vue_vue_type_template_id_7e66b244_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Administrador/ActualizarContraseña.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/views/Administrador/ActualizarContraseña.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ActualizarContrase_a_vue_vue_type_template_id_86990ab8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ActualizarContraseña.vue?vue&type=template&id=86990ab8& */ "./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=template&id=86990ab8&");
+/* harmony import */ var _ActualizarContrase_a_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ActualizarContraseña.vue?vue&type=script&lang=js& */ "./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ActualizarContrase_a_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ActualizarContrase_a_vue_vue_type_template_id_86990ab8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ActualizarContrase_a_vue_vue_type_template_id_86990ab8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/Administrador/ActualizarContraseña.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ActualizarContrase_a_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ActualizarContraseña.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ActualizarContrase_a_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=template&id=86990ab8&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=template&id=86990ab8& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ActualizarContrase_a_vue_vue_type_template_id_86990ab8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ActualizarContraseña.vue?vue&type=template&id=86990ab8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Administrador/ActualizarContraseña.vue?vue&type=template&id=86990ab8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ActualizarContrase_a_vue_vue_type_template_id_86990ab8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ActualizarContrase_a_vue_vue_type_template_id_86990ab8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

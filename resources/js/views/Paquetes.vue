@@ -31,10 +31,8 @@ export default {
                 let { data } = await axios.post("/api/paquetes")
                 this.datosPaquetes = data
                 console.log(data)
-
             } catch (err) {
                 console.error(err)
-
                  this.$toasted.success("A ocurrido un problemas al cargar los paquetes", {
                     type:"error",
                     theme: "outline",

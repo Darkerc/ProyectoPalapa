@@ -14,7 +14,7 @@
         <App></App>
     </div>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl6mfoS8AE5woNLZSUdmVN5ZrSjM1WVn4">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHZRT3mHUTTJfm8GowuJzFZP5kKFDoLgI">
     </script>
     <script src="/js/app.js"></script>
 </body>

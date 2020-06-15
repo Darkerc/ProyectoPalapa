@@ -60,12 +60,12 @@ class PaquetesController extends Controller
     public function EliminarPaquete(Request $request){
         $paquete = Paquete::find($request->idPaquete);
         Caracteristica_Paquete::destroy($paquete->Caracteristicas_Id);
-        $urlImage=$_SERVER['DOCUMENT_ROOT'] . $paquete->URLImagen;
+        $urlImage=$_SERVER['DOCUMENT_ROOT'] . "/" .$paquete->URLImagen;
         unlink($urlImage);
         Paquete::destroy($paquete->id);
         return response()->json([
             'status' => 'success',
-            'msg' => $paquete->id
+            'msg' => $urlImage
         ], 200);
     }
 

@@ -40,6 +40,9 @@ const config = {
     method: 'GET',
     enabled: true,
     interval: 30
+  },
+  _parseUserData:function({data}){
+    return data.data;
   }
 }
 
